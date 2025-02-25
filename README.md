@@ -8,6 +8,7 @@ FIND-Net incorporates Fast Fourier Convolution (FFC) layers and trainable Gaussi
 
 ## Overview
 
+
 ![FIND-Net Architecture](Figures/FIND-Net.png) <!-- Ensure the path is correct -->
 
 
@@ -48,9 +49,6 @@ pip install -r requirements.txt
 
 To evaluate FIND-Net on a test dataset, use the provided `test.sh` script, which automates the setup and execution of the testing process.
 
-
-
-
 #### **Step 1: Configure the Model Selection**
 Before running the test script, ensure that the correct model configuration is set:
 
@@ -86,9 +84,17 @@ Once the configurations are correctly set, run the following command in the term
 
 ```sh
 bash test.sh
+```
 
+## Performance Comparison of MAR Approaches
 
+| Methods         | Large Metal → Small Metal  | Average |
+|---------------|---------------------------|---------|
+| **LI**        | 35.5 / 0.866 / 35.9 <br> 29.6 / 0.899 / 38.1 <br> 23.4 / 0.929 / 39.9 | 26.6 / 0.913 / 38.9 |
+| **DICDNet**   | 23.9 / 0.918 / 38.7 <br> 21.1 / 0.941 / 41.2 <br> 15.6 / 0.962 / 43.8 | 18.3 / 0.951 / 42.4 |
+| **OSCNet**    | 23.2 / 0.920 / 39.0 <br> 21.9 / 0.938 / 40.4 <br> 16.2 / 0.959 / 42.9 | 18.8 / 0.948 / 41.7 |
+| **OSCNet+**   | 23.5 / 0.918 / 39.0 <br> 21.9 / 0.938 / 40.8 <br> 16.2 / 0.959 / 43.2 | 18.8 / 0.948 / 42.0 |
+| **FIND-Net-NoGF** | 24.0 / 0.917 / 38.7 <br> 21.0 / 0.941 / 41.3 <br> 15.5 / 0.962 / 43.8 | 18.2 / 0.951 / 42.5 |
+| **FIND-Net**  | **22.9** / **0.925** / **39.2** <br> **20.9** / **0.942** / **41.4** <br> **15.2** / **0.963** / **44.3** | **17.9** / **0.952** / **42.8** |
 
-
-
-
+**Table:** Performance comparison of different MAR approaches in terms of **MAE ↓ / SSIM ↑ / PSNR ↑** across varying metal sizes.
