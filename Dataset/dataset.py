@@ -2,7 +2,6 @@ import os
 import os.path
 import numpy as np
 import random
-import h5py
 import torch
 import torch.utils.data as udata
 from numpy.random import RandomState
@@ -10,10 +9,6 @@ import PIL
 from PIL import Image
 import PIL.Image
 from gecatsim.pyfiles.CommonTools import *
-
-
-def image_get_minmax():
-    return 0.0, 1.0
 
 
 def normalize(data, minmax):
@@ -36,64 +31,11 @@ def augment(*args, hflip=True, rot=True):
     return [_augment(a) for a in args]
 
 
-def save_image(img, file_path, i):
-    import matplotlib.pyplot as plt
-    import numpy as np
-    import os
-
-    plt.figure()
-    plt.imshow(img, cmap='gray')
-    plt.axis('off')
-    file_name = os.path.join(file_path, f'output_image_{i}.png')
-    plt.savefig(file_name, bbox_inches='tight', pad_inches=0)
-    plt.close()
-
 def check_nan_inf(data, name, absdir):
     if np.isnan(data).any() or np.isinf(data).any():
         print(f"NaN or Inf found in {name}")
         print(absdir)
         exit()
-
-def save_image_2d(img, file_path, i):
-    import matplotlib.pyplot as plt
-    # Assume img is a tensor of shape [batch_size, channels, height, width]
-    # Plot each image in the batch
-    plt.figure()
- 
-    # Save the image
-    plt.axis('off')
-    file_name = os.path.join(file_path, f'output_image_{i}.png')
-    plt.savefig(file_name, bbox_inches='tight', pad_inches=0)
-    plt.close()
-
-
-def save_image_and_histogram(img, file_path, i):
-    import matplotlib.pyplot as plt
-    import numpy as np
-    import os
-
-    # Ensure directory exists
-    os.makedirs(file_path, exist_ok=True)
-
-    # Save the image
-    plt.figure()
-    plt.imshow(img, cmap='gray')
-    plt.axis('off')
-    image_filename = os.path.join(file_path, f'output_image_{i}.png')
-    plt.savefig(image_filename, bbox_inches='tight', pad_inches=0)
-    plt.close()
-
-    # Calculate and save the histogram
-    plt.figure()
-    # Flatten the image array and calculate the histogram
-    histogram, bin_edges = np.histogram(img.flatten(), bins=256, range=[0,256])
-    plt.fill_between(bin_edges[:-1], histogram, step="pre", alpha=0.75)
-    plt.title('Grayscale Histogram')
-    plt.xlabel('Intensity Value')
-    plt.ylabel('Pixel Count')
-    histogram_filename = os.path.join(file_path, f'histogram_{i}.png')
-    plt.savefig(histogram_filename, bbox_inches='tight', pad_inches=0)
-    plt.close()
 
 
 class MARTrainDataset(udata.Dataset):
@@ -146,9 +88,9 @@ class MARTrainDataset(udata.Dataset):
         XLI = rawread(XLI_absdir, [512, 512], 'float')
         M512 = rawread(Mask_absdir, [512, 512], 'float')
 
-        Xgt = (Xgt +1500)/5000    # FUXIN
-        Xma = (Xma +1500)/5000    # FUXIN
-        XLI = (XLI +1500)/5000    # FUXIN
+        Xgt = (Xgt +1500)/5000
+        Xma = (Xma +1500)/5000
+        XLI = (XLI +1500)/5000
 
         # Example usage:
         check_nan_inf(Xgt, "Xgt", Xgt_absdir)
@@ -197,8 +139,6 @@ class MARTrainDataset(udata.Dataset):
         non_Mask = 1 - Mask  # non-metal region
 
         return gt_filename, torch.from_numpy(O.copy()), torch.from_numpy(B.copy()), torch.from_numpy(LI.copy()), torch.from_numpy(non_Mask.copy())  # O: Baseline, B: Target, LI: LI, non_Mask: non-metal region
-        # return torch.from_numpy(O.copy()), torch.from_numpy(B.copy()), torch.from_numpy(LI.copy()), torch.from_numpy(non_Mask.copy())
-
 
     def crop(self, img):
         h, w = img.shape
