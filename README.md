@@ -29,11 +29,13 @@ To use FIND-Net, clone this repository and install the required dependencies:
 git clone https://github.com/yourusername/FIND-Net.git
 cd FIND-Net
 pip install -r requirements.txt
-
+```
 
 
 ## Usage
 # Testing the Model
 Run the following command to evaluate FIND-Net on a test dataset:
 
+```
 python test_FINDNet.py --data_path /path/to/test/data --checkpoint checkpoint.pt
+```
