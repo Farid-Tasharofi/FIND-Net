@@ -1,78 +1,90 @@
-# FIND-Net: Fourier-Integrated Network with Dictionary Kernels for Metal Artifact Reduction
-FIND-Net (Fourier-Integrated Network with Dictionary Kernels) is a deep learning model for Metal Artifact Reduction (MAR) in CT imaging. It integrates Fast Fourier Convolution (FFC) and trainable Gaussian filtering to suppress artifacts while preserving anatomical structures. 
+# DICDNet: Deep Interpretable Convolutional Dictionary Network for Metal Artifact Reduction in CT Images (TMI2021)
+[Hong Wang](https://hongwang01.github.io/), Yuexiang Li, Nanjun He, Kai Ma, [Deyu Meng](http://gr.xjtu.edu.cn/web/dymeng), [Yefeng Zheng](https://sites.google.com/site/yefengzheng/)
 
-![FIND-Net Architecture](Figures/FIND-Net.png) <!-- Ensure the path is correct -->
+DICDNet [[Google Drive]](https://drive.google.com/file/d/1FwWqtXIBD3dAL563oLnjf2bX9nLtFkux/view?usp=sharing)
 
+DICDNet_supp.pdf, [[Google Drive]](https://drive.google.com/file/d/1IprOzUse-L1bJV1UjcJPB2QeceCwirPD/view?usp=sharing)
+[[Baidu NetDisk]](https://cowtransfer.com/s/7f38c2a44c754c)   password：h8yvdu  
 
+## Abstract
+ Computed tomography (CT) images are often impaired by unfavorable artifacts caused by metallic implants within patients, which would adversely affect the subsequent clinical diagnosis and treatment. Although the existing deep-learning-based approaches have achieved promising success on metal artifact reduction (MAR) for CT images, most of them treated the task as a general image restoration problem and utilized off-the-shelf network modules for image quality enhancement. Hence, such frameworks always suffer from lack of sufficient model interpretability for the specific task. Besides, the existing MAR techniques largely neglect the intrinsic prior knowledge underlying {\textcolor{black}{metal-corrupted CT images}} which is beneficial for the MAR performance improvement. In this paper, we specifically propose a deep interpretable convolutional dictionary network (DICDNet) for the MAR task. Particularly, we first explore that the metal artifacts always present non-local streaking and star-shape patterns in CT images. Based on such observations, a convolutional dictionary model is deployed to encode the metal artifacts. To solve the model, we propose a novel optimization algorithm based on the proximal gradient technique. With only simple operators, the iterative steps of the proposed algorithm can be easily unfolded into corresponding network modules with specific physical meanings. Comprehensive experiments on synthesized and clinical datasets substantiate the effectiveness of the proposed DICDNet as well as its superior interpretability, compared to current state-of-the-art MAR methods.
 
-<!-- 
-# FIND-Net: Fourier-Integrated Network with Dictionary Kernels for Metal Artifact Reduction
+## Dependicies
 
-![FIND-Net Logo](https://your-logo-url.com) Optional: Replace with a relevant image -->
+This repository is tested under the following system settings:
 
-## Overview
-FIND-Net is a deep learning-based framework for **Metal Artifact Reduction (MAR)** in CT imaging. It extends the **DICDNet** architecture by incorporating **Fourier domain processing** and **trainable Gaussian filtering**, enhancing artifact suppression while preserving anatomical structures.
+Python 3.6
 
-This repository provides:
-- **Implementation of FIND-Net** for MAR.
-- **Training and inference scripts** for testing the model.
-- **Evaluation metrics and dataset handling**.
+Pytorch 1.4.0
 
-## Features
-✅ **Hybrid Frequency-Spatial Processing**: Integrates **Fast Fourier Convolution (FFC)** for improved feature extraction.  
-✅ **Trainable Gaussian Filtering**: Enhances frequency selectivity while preserving critical anatomical details.  
-✅ **Efficient MAR Performance**: Reduces metal artifacts while maintaining high structural fidelity.  
-✅ **Benchmark Comparisons**: Achieves state-of-the-art results against existing MAR methods.  
+CUDA 10.1
+
+GPU NVIDIA Tesla V100-SMX2
 
 
+## Model Formulation for MAR
+<div  align="center"><img src="figs/formulation.jpg" height="100%" width="100%" alt=""/></div>
 
-## Installation
-To use FIND-Net, clone this repository and install the required dependencies:
 
-```sh
-git clone https://github.com/yourusername/FIND-Net.git
-cd FIND-Net
-pip install -r requirements.txt
+## Overview of DICDNet
+The proposed DICDNet is naturally built by unfolding the corresponding optimization algorithm.
+<div  align="center"><img src="figs/DICDNet.jpg" height="100%" width="100%" alt=""/></div>
+
+## Benchmark Dataset
+
+Please download from [SynDeepLesion](https://github.com/hongwang01/SynDeepLesion), and put the dataset into the folder "DICDNet/data" as:
+
+```
+data/train/train_640geo
+data/train/train_640geo_dir.txt
+data/train/trainmask.npy
+data/test/test_640geo
+data/test/test_640geo_dir.txt
+data/test/testmask.npy
 ```
 
 
-## Usage
-### Testing the Model
+## Training
+```
+python train_DICDNet.py --gpu_id 0  --data_path "data/train/" --batchSize 16 --batchnum 1000 --log_dir "logs/" --model_dir "models/"
+```
+*Please note that for the demo, “batchnum=1, batchSize=1". Please change it according to your own training set.*
 
-To evaluate FIND-Net on a test dataset, use the provided `test.sh` script, which automates the setup and execution of the testing process.
+## Testing
+```
+python3 test_DICDNet.py  --gpu_id 0 --data_path "data/test/" --model_dir "pretrain_model/DICDNet_latest.pt" --save_path "save_results/"
+```
 
-#### **Step 1: Configure the Model Selection**
-Before running the test script, ensure that the correct model configuration is set:
+## Metric
+Please refer to https://github.com/hongwang01/OSCNet/tree/main/metric
 
-1. **Choose a model directory** (`MODEL_DIRECTORY` in `test.sh`):
-   - **`FINDNet`** → Standard FIND-Net model  
-   - **`FINDNet_no_GF`** → FIND-Net without Gaussian filtering  
-   - **`DICDNet`** → Baseline DICDNet model  
 
-2. **Modify `ProxNet.py` settings (located in the `Model` folder)**:
-   - For **FINDNet** or **FINDNet_no_GF**:
-     ```python
-     FINDNet_Mnet = True
-     FINDNet_Xnet = True
-     ```
-   - For **DICDNet**:
-     ```python
-     FINDNet_Mnet = False
-     FINDNet_Xnet = False
-     ```
+## Experiments on Synthesized DeepLesion
+<div  align="center"><img src="figs/syn.jpg" height="100%" width="100%" alt=""/></div>
 
-3. **Modify `ffc.py` settings (located in the `Model` folder)**:
-   - For **FINDNet** (with Gaussian filtering enabled):
-     ```python
-     Gaussian_filter = True
-     ```
-   - For **FINDNet_no_GF** (without Gaussian filtering):
-     ```python
-     Gaussian_filter = False
-     ```
+## Experiments on Clinical Data
+<div  align="center"><img src="figs/clinic.jpg" height="100%" width="100%" alt=""/></div>
 
-#### **Step 2: Execute the Test Script**
-Once the configurations are correctly set, run the following command in the terminal:
 
-```sh
-bash test.sh
+## Citations
+
+```
+@article{wang2021dicdnet,
+  title={DICDNet: Deep Interpretable Convolutional Dictionary Network for Metal Artifact Reduction in CT Images},
+  author={Wang, Hong and Li, Yuexiang and He, Nanjun and Ma, Kai and Meng, Deyu and Zheng, Yefeng},
+  journal={IEEE Transactions on Medical Imaging},
+  volume={41},
+  number={4},
+  pages={869--880},
+  year={2021},
+  publisher={IEEE}
+}
+```
+## References
+
+[1] Hong Wang, Yuexiang Li, Haimiao Zhang, Jiawei Chen, Kai Ma, Deyu Meng, and Yefeng Zheng. InDuDoNet: An interpretable dual domain network for CT metal artifact reduction. In International Conference on Medical Image Computing and Computer Assisted Intervention, pages 107–118, 2021.
+
+[2] Hong Wang, Yuexiang Li, Haimiao Zhang, Deyu Meng, and Yefeng Zheng. InDuDoNet+: A Deep Unfolding Dual Domain Network for Metal Artifact Reduction in CT Images. Medical Image Analysis, 2022.
+
+## Contact
+If you have any questions, please feel free to contact Hong Wang (Email: hongwang9209@hotmail.com)
