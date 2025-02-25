@@ -97,3 +97,14 @@ bash test.sh
 | **FIND-Net**  | **22.9** / **0.925** / **39.2** | **20.9** / **0.942** / **41.4** | **15.2** / **0.963** / **44.3** | **17.9** / **0.952** / **42.8** |
 
 **Table:** Performance comparison of different MAR approaches in terms of **MAE ↓ / SSIM ↑ / PSNR ↑** across varying metal sizes.
+
+
+
+## Performance Improvements
+
+Below is a comparison of **MAE, SSIM, and PSNR** improvements (%) across MAR models, relative to DICDNet.
+
+![Improvements](Figures/Improvements.png)
+
+**Figure:** Boxplot comparison of MAE, SSIM, and PSNR improvements (%) across MAR models, relative to DICDNet. Overall distributions are shown, with zoomed-in views highlighting FIND-Net and FIND-Net without Gaussian filtering (FIND-Net w/o GF). Mean, median, and 95% confidence intervals (*) are annotated. A zero-baseline corresponds to DICDNet, and negative values indicate worse performance relative to it.
+
