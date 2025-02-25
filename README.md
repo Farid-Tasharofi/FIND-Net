@@ -132,10 +132,26 @@ The **red mask highlights segmented metal**, and the **blue region (artifact-fre
 
 
 
-### **Referenced Work & Attribution**
-- **DICDNet**: Original architecture for metal artifact reduction.  
-  *Wang et al., IEEE TMI 2022 ([DOI](https://doi.org/10.1109/TMI.2021.3127074))*
-- **Fast Fourier Convolution (FFC)**: Used for efficient frequency-domain processing.  
-  *Adapted from [pkumivision/FFC](https://github.com/pkumivision/FFC), Apache 2.0 License.*
+### **Referenced Work**
+- **DICDNet: Deep Interpretable Convolutional Dictionary Network for Metal Artifact Reduction in CT Images**  
+  *Wang, H., Li, Y., He, N., Ma, K., Meng, D., Zheng, Y.*  
+  *IEEE Transactions on Medical Imaging, 41(4), 869–880, 2022.*  
+  [DOI: 10.1109/TMI.2021.3127074](https://doi.org/10.1109/TMI.2021.3127074)  
+  [GitHub Repository](https://github.com/hongwang01/DICDNet)
 
+- **Fast Fourier Convolution (FFC)**  
+  *Chi, Lu, Borui Jiang, and Yadong Mu.*  
+  *"Fast Fourier Convolution." Advances in Neural Information Processing Systems 33 (2020): 4479-4488.*  
+  [Paper Link](https://proceedings.neurips.cc/paper/2020/hash/e6bfe30a8c314d5f69b2c41c66f8b133-Abstract.html)  
+  [GitHub Repository](https://github.com/pkumivision/FFC)
 
+### **Code Attribution**
+This repository includes code adapted from:  
+- **DICDNet (Deep Interpretable Convolutional Dictionary Network)**  
+  [GitHub: hongwang01/DICDNet](https://github.com/hongwang01/DICDNet)  
+  Used as a baseline model for **metal artifact reduction in CT images**.
+
+- **Fast Fourier Convolution (FFC) for Image Classification**  
+  [GitHub: pkumivision/FFC](https://github.com/pkumivision/FFC)  
+  Licensed under the **Apache License 2.0**.  
+  Full license available at: [Apache License](http://www.apache.org/licenses/LICENSE-2.0)
