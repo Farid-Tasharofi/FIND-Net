@@ -129,3 +129,13 @@ The **red mask highlights segmented metal**, and the **blue region (artifact-fre
 ![Real-World Comparison](Figures/RealWorldComparison.png)
 
 **Figure:** Qualitative comparison of MAR methods on a real-world CT scan.
+
+
+
+### **Referenced Work & Attribution**
+- **DICDNet**: Original architecture for metal artifact reduction.  
+  *Wang et al., IEEE TMI 2022 ([DOI](https://doi.org/10.1109/TMI.2021.3127074))*
+- **Fast Fourier Convolution (FFC)**: Used for efficient frequency-domain processing.  
+  *Adapted from [pkumivision/FFC](https://github.com/pkumivision/FFC), Apache 2.0 License.*
+
+
