@@ -1,4 +1,4 @@
-DATA_PATH="/home/woody/iwi5/iwi5200h/dataset/26.06/"
+DATA_PATH="your_path_to_dataset"
 BATCH_SIZE=1
 BATCHNUM=700
 PATCH_SIZE=512
@@ -13,10 +13,10 @@ USE_GPU=true
 GPU_ID="0"
 LOG_DIR="./logs/"
 CHECKPOINT="checkpoint.pt"
-MANUAL_SEED=""  # Optional: If defined, append in Python command
+MANUAL_SEED=""
 MASKEDEVAL=true # This will calculate metrics only on the non-metal regions
-MODEL_DIRECTORY="./pretrained_models/FINDNet_no_GF/"
-TEST_INFO="/test_FINDNet/"  # for fine tuning --> "/06.09_MX-net_FFC_128_fine/"  /  for scratch training --> ""
+MODEL_DIRECTORY="./pretrained_models/PUT_THE_PRETRAINED_MODEL_NAME/"
+TEST_INFO="/test_FINDNet/""
 
 # Execute Python script with all parameters
 python test_FINDNet.py \
