@@ -1,10 +1,6 @@
 # FIND-Net: Fourier-Integrated Network with Dictionary Kernels for Metal Artifact Reduction
 FIND-Net (Fourier-Integrated Network with Dictionary Kernels) is a deep learning model for Metal Artifact Reduction (MAR) in CT imaging. It integrates Fast Fourier Convolution (FFC) and trainable Gaussian filtering to suppress artifacts while preserving anatomical structures. 
 
-
-
-# FIND-Net: Fourier-Integrated Network with Dictionary Kernels for Metal Artifact Reduction
-
 ![FIND-Net Architecture](Figures/FIND-Net.png) <!-- Ensure the path is correct -->
 
 
@@ -42,8 +38,41 @@ pip install -r requirements.txt
 
 ## Usage
 ### Testing the Model
-Run the following command to evaluate FIND-Net on a test dataset:
 
-```
-python test_FINDNet.py --data_path /path/to/test/data --checkpoint checkpoint.pt
-```
+To evaluate FIND-Net on a test dataset, use the provided `test.sh` script, which automates the setup and execution of the testing process.
+
+#### **Step 1: Configure the Model Selection**
+Before running the test script, ensure that the correct model configuration is set:
+
+1. **Choose a model directory** (`MODEL_DIRECTORY` in `test.sh`):
+   - **`FINDNet`** → Standard FIND-Net model  
+   - **`FINDNet_no_GF`** → FIND-Net without Gaussian filtering  
+   - **`DICDNet`** → Baseline DICDNet model  
+
+2. **Modify `ProxNet.py` settings (located in the `Model` folder)**:
+   - For **FINDNet** or **FINDNet_no_GF**:
+     ```python
+     FINDNet_Mnet = True
+     FINDNet_Xnet = True
+     ```
+   - For **DICDNet**:
+     ```python
+     FINDNet_Mnet = False
+     FINDNet_Xnet = False
+     ```
+
+3. **Modify `ffc.py` settings (located in the `Model` folder)**:
+   - For **FINDNet** (with Gaussian filtering enabled):
+     ```python
+     Gaussian_filter = True
+     ```
+   - For **FINDNet_no_GF** (without Gaussian filtering):
+     ```python
+     Gaussian_filter = False
+     ```
+
+#### **Step 2: Execute the Test Script**
+Once the configurations are correctly set, run the following command in the terminal:
+
+```sh
+bash test.sh
