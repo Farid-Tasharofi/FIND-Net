@@ -33,7 +33,7 @@ pip install -r requirements.txt
 
 
 ## Usage
-# Testing the Model
+### Testing the Model
 Run the following command to evaluate FIND-Net on a test dataset:
 
 ```
