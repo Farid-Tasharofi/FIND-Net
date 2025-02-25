@@ -21,3 +21,25 @@ This repository provides:
 ✅ **Benchmark Comparisons**: Achieves state-of-the-art results against existing MAR methods.  
 
 ## Repository Structure
+
+📂 FIND-Net/  
+│── 📂 Model/              # Core model components (FIND-Net, ProxNet, FFC)  
+│── 📂 Dataset/            # Dataset processing scripts  
+│── 📂 utils/              # Helper functions (image saving, initialization)  
+│── 📜 findnet.py          # Main FIND-Net model  
+│── 📜 ProxNet.py          # Proximal network implementation  
+│── 📜 ffc.py              # Fast Fourier Convolution with Gaussian filtering  
+│── 📜 test_FINDNet.py     # Evaluation and testing script  
+│── 📜 requirements.txt    # Required dependencies  
+│── 📜 LICENSE             # License information  
+│── 📜 README.md           # This file  
+
+
+
+## Installation
+To use FIND-Net, clone this repository and install the required dependencies:
+
+```sh
+git clone https://github.com/yourusername/FIND-Net.git
+cd FIND-Net
+pip install -r requirements.txt
