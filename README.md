@@ -87,7 +87,7 @@ bash test.sh
 ```
 
 ## Performance Comparison of MAR Approaches
-| Methods         | Large Metal → Small Metal  | Average |
+| Methods         | Large Metal | Medium Metal | Small Metal | Average |
 |---------------|---------------------|---------------------|---------------------|---------------------|
 | **LI**        | 35.5 / 0.866 / 35.9 | 29.6 / 0.899 / 38.1 | 23.4 / 0.929 / 39.9 | 26.6 / 0.913 / 38.9 |
 | **DICDNet**   | 23.9 / 0.918 / 38.7 | 21.1 / 0.941 / 41.2 | 15.6 / 0.962 / 43.8 | 18.3 / 0.951 / 42.4 |
