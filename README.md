@@ -43,6 +43,8 @@ cd FIND-Net
 pip install -r requirements.txt
 ```
 
+FIND-Net's dataloader relies on the CatSim package for X-ray CT simulation. To install CatSim, follow the official installation guide:
+https://github.com/xcist/documentation/wiki/How-to-install-CatSim-Python-package
 
 ## Usage
 ### Testing the Model
