@@ -86,7 +86,8 @@ Once the configurations are correctly set, run the following command in the term
 bash test.sh
 ```
 
-## Performance Comparison of MAR Approaches
+## Quantitative Evaluation
+### Performance Comparison of MAR Approaches
 | Methods         | Large Metal | Medium Metal | Small Metal | Average |
 |---------------|---------------------|---------------------|---------------------|---------------------|
 | **Linear Interpolation**        | 35.5 / 0.866 / 35.9 | 29.6 / 0.899 / 38.1 | 23.4 / 0.929 / 39.9 | 26.6 / 0.913 / 38.9 |
@@ -100,7 +101,7 @@ bash test.sh
 
 
 
-## Performance Improvements
+### Performance Improvements
 
 Below is a comparison of **MAE, SSIM, and PSNR** improvements (%) across MAR models, relative to DICDNet.
 
@@ -108,3 +109,23 @@ Below is a comparison of **MAE, SSIM, and PSNR** improvements (%) across MAR mod
 
 **Figure:** Boxplot comparison of MAE, SSIM, and PSNR improvements (%) across MAR models, relative to DICDNet. Overall distributions are shown, with zoomed-in views highlighting FIND-Net and FIND-Net without Gaussian filtering (FIND-Net w/o GF). Mean, median, and 95% confidence intervals (*) are annotated. A zero-baseline corresponds to DICDNet, and negative values indicate worse performance relative to it.
 
+
+## Qualitative Evaluation
+
+### Synthetic CT Image Comparison
+Below is a qualitative comparison of MAR results on a **metal-corrupted synthetic CT image**. The highlighted ROIs demonstrate **FIND-Net’s superior artifact suppression**, particularly in fine streak removal and edge preservation, compared to other methods.  
+The **red mask highlights the metal mask**.
+
+![Qualitative Comparison](Figures/VisualComparison.png)
+
+**Figure:** Qualitative comparison of MAR results on a metal-corrupted synthetic CT image.
+
+---
+
+### Real-World CT Scan Comparison
+The following comparison shows **MAR methods on a real-world CT scan**, where no ground truth is available.  
+The **red mask highlights segmented metal**, and the **blue region (artifact-free in the input)** is evaluated for **structural preservation**.
+
+![Real-World Comparison](Figures/real_world_comparison.png)
+
+**Figure:** Qualitative comparison of MAR methods on a real-world CT scan.
