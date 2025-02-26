@@ -140,12 +140,13 @@ The **red mask highlights segmented metal**, and the **blue region (artifact-fre
 
 **Figure:** Qualitative comparison of MAR methods on a real-world CT scan.
 
-Figure~\ref{fig:real_world_comparison} shows results on a real-world CT scan from our 29-image dataset, where no artifact-free reference is available. While FIND-Net and DICDNet reduce artifacts, DICDNet and OSCNet variants introduce excessive smoothing in non-corrupted regions. The blue region analysis confirms FIND-Net’s superior preservation, achieving the lowest MAE and highest SSIM and PSNR. 
+Our dataset consists of **29 real-world CT images**, where no artifact-free reference is available. To evaluate **structural preservation**, we selected **7 images** in which it was possible to identify a **patch free of metal artifacts**. These selected patches serve as a reference to assess how much each model alters clean regions. 
 
-To evaluate the impact on clean anatomical regions, we analyzed artifact-free patches from seven images. An ideal MAR method should leave these patches unchanged. OSCNet, OSCNet+, and DICDNet perform similarly (MAE ≈ 0.007, SSIM ≈ 0.94, PSNR ≈ 40.4), while FIND-Net without Gaussian filtering better preserves structures (MAE 0.006, SSIM 0.96, PSNR 41.81). FIND-Net outperforms all models, achieving the best scores (MAE 0.005, SSIM 0.97, PSNR 43.23) and demonstrating robust suppression with minimal unintended modifications.
+Each of the **7 selected images** was processed by all models, and **MAE, SSIM, and PSNR** were computed on the selected patches to quantify structural preservation. An ideal MAR method should leave these regions unchanged—achieving **low MAE, high SSIM, and high PSNR**. 
 
-### Quantitative Results on Real-World Patches
-The table below presents quantitative results on **7 real-world patches** that are free of metal artifacts.
+The **figure above** shows one of these 7 images and its results across different models, with the **corresponding MAE, SSIM, and PSNR values displayed on the figure itself**. 
+
+The **table below** reports the **average** metrics over all 7 selected cases.
 
 | **Method**        | **MAE** ↓  | **SSIM** ↑  | **PSNR** ↑  |
 |------------------|------------|------------|------------|
