@@ -96,7 +96,7 @@ bash test.sh
 ### Performance Improvements
 Below is a comparison of **MAE, SSIM, and PSNR** improvements (%) across MAR models, relative to DICDNet.
 <div align="center">
-  <img src="Figures/Improvements.png" width="60%">
+  <img src="Figures/Improvements.png" width="40%">
 </div>
 
 **Figure:** Boxplot comparison of MAE, SSIM, and PSNR improvements (%) across MAR models, relative to DICDNet. Overall distributions are shown, with zoomed-in views highlighting FIND-Net and FIND-Net without Gaussian filtering (FIND-Net w/o GF). Mean, median, and 95% confidence intervals (*) are annotated. A zero-baseline corresponds to DICDNet, and negative values indicate worse performance relative to it.
