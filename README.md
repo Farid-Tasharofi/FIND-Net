@@ -9,7 +9,7 @@ FIND-Net (Fourier-Integrated Network with Dictionary Kernels) is a deep learning
 
 ## Overview
 FIND-Net is a deep learning-based framework for **Metal Artifact Reduction (MAR)** in CT imaging. It extends the **DICDNet** architecture by incorporating **Fourier domain processing** and **trainable Gaussian filtering**, enhancing artifact suppression while preserving anatomical structures.
-<img src="./Figures/FIND-Net.png" width="60%">
+<img src="Figures/FIND-Net.png" width="60%">
 
 ## Abstract
 Metal artifacts, caused by high-density metallic implants in computed tomography (CT) imaging, severely degrade image quality, complicating diagnosis and treatment planning. While existing deep learning algorithms have achieved notable success in Metal Artifact Reduction (MAR), they often struggle to suppress artifacts while preserving structural details. To address this challenge, we propose FIND-Net (Fourier-Integrated Network with Dictionary Kernels), a novel MAR framework that integrates frequency and spatial domain processing to achieve superior artifact suppression and structural preservation. 
@@ -93,7 +93,7 @@ bash test.sh
 
 ### Performance Improvements
 Below is a comparison of **MAE, SSIM, and PSNR** improvements (%) across MAR models, relative to DICDNet.
-<img src="./Figures/Improvements.png" width="60%">
+<img src="Figures/Improvements.png" width="60%">
 
 **Figure:** Boxplot comparison of MAE, SSIM, and PSNR improvements (%) across MAR models, relative to DICDNet. Overall distributions are shown, with zoomed-in views highlighting FIND-Net and FIND-Net without Gaussian filtering (FIND-Net w/o GF). Mean, median, and 95% confidence intervals (*) are annotated. A zero-baseline corresponds to DICDNet, and negative values indicate worse performance relative to it.
 
@@ -101,7 +101,7 @@ Below is a comparison of **MAE, SSIM, and PSNR** improvements (%) across MAR mod
 ### Synthetic CT Image Comparison
 Below is a qualitative comparison of MAR results on a **metal-corrupted synthetic CT image**. The highlighted ROIs demonstrate **FIND-Net’s superior artifact suppression**, particularly in fine streak removal and edge preservation, compared to other methods.  
 The **red mask highlights the metal mask**.
-<img src="./Figures/VisualComparison.png" width="60%">
+<img src="Figures/VisualComparison.png" width="60%">
 
 **Figure:** Qualitative comparison of MAR results on a metal-corrupted synthetic CT image.
 
@@ -118,7 +118,7 @@ The **red mask highlights segmented metal**, and the **blue region (artifact-fre
 ### Real-World CT Scan Comparison
 The following comparison shows **MAR methods on a real-world CT scan**, where no ground truth is available.  
 The **red mask highlights segmented metal**, and the **blue region (artifact-free in the input)** is evaluated for **structural preservation**.
-<img src="./Figures/RealWorldComparison.png" width="60%">
+<img src="Figures/RealWorldComparison.png" width="60%">
 
 **Figure:** Qualitative comparison of MAR methods on a real-world CT scan.
 Our dataset consists of **29 real-world CT images**, where no artifact-free reference is available. To evaluate **structural preservation**, we selected **7 images** in which it was possible to identify a **patch free of metal artifacts**. These selected patches serve as a reference to assess how much each model alters clean regions. 
