@@ -12,7 +12,9 @@ FIND-Net (Fourier-Integrated Network with Dictionary Kernels) is a deep learning
 
 ## Overview
 FIND-Net is a deep learning-based framework for **Metal Artifact Reduction (MAR)** in CT imaging. It extends the **DICDNet** architecture by incorporating **Fourier domain processing** and **trainable Gaussian filtering**, enhancing artifact suppression while preserving anatomical structures.
-![FIND-Net Architecture](Figures/FIND-Net.png)
+<div align="center">
+  <img src="Figures/FIND-Net.png" width="80%">
+</div>
 
 ## Abstract
 Metal artifacts, caused by high-density metallic implants in computed tomography (CT) imaging, severely degrade image quality, complicating diagnosis and treatment planning. While existing deep learning algorithms have achieved notable success in Metal Artifact Reduction (MAR), they often struggle to suppress artifacts while preserving structural details. To address this challenge, we propose FIND-Net (Fourier-Integrated Network with Dictionary Kernels), a novel MAR framework that integrates frequency and spatial domain processing to achieve superior artifact suppression and structural preservation. 
