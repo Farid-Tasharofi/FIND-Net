@@ -85,6 +85,8 @@ bash test.sh
 ## Quantitative Evaluation on Synthetic Data
 ### Performance Comparison of MAR Approaches
 
+<div align="center">
+
 | Methods         | Large Metal | Medium Metal | Small Metal | Average |
 |---------------|---------------------|---------------------|---------------------|---------------------|
 | Linear Interpolation        | 35.5 / 0.866 / 35.9 | 29.6 / 0.899 / 38.1 | 23.4 / 0.929 / 39.9 | 26.6 / 0.913 / 38.9 |
@@ -93,6 +95,8 @@ bash test.sh
 | OSCNet+   | 23.5 / 0.918 / 39.0 | 21.9 / 0.938 / 40.8 | 16.2 / 0.959 / 43.2 | 18.8 / 0.948 / 42.0 |
 | FIND-Net(w/o GF)(Ours) | 24.0 / 0.917 / 38.7 | 21.0 / 0.941 / 41.3 | 15.5 / 0.962 / 43.8 | 18.2 / 0.951 / 42.5 |
 | **FIND-Net (Ours)**  | **22.9** / **0.925** / **39.2** | **20.9** / **0.942** / **41.4** | **15.2** / **0.963** / **44.3** | **17.9** / **0.952** / **42.8** |
+
+</div>
 
 **Table:** Performance comparison of different MAR approaches in terms of **MAE ↓ / SSIM ↑ / PSNR ↑** across varying metal sizes.
 
@@ -142,6 +146,8 @@ The **figure above** shows one of these 7 images and its results across differen
 The **table below** reports the **average** metrics over all 7 selected cases.
 </div>
 
+<div align="center">
+
 | **Method**        | **MAE** ↓  | **SSIM** ↑  | **PSNR** ↑  |
 |------------------|------------|------------|------------|
 | OSCNet           | 0.007      | 0.94       | 40.49      |
@@ -149,6 +155,8 @@ The **table below** reports the **average** metrics over all 7 selected cases.
 | DICDNet          | 0.007      | 0.94       | 40.37      |
 | FIND-Net (w/o GF) (Ours)    | 0.006      | 0.96       | 41.81      |
 | **FIND-Net (Ours)**     | **0.005**  | **0.97**   | **43.23**  |
+
+</div>
 
 **Table:** Quantitative results on 7 real-world patches free of metal artifacts.
 
