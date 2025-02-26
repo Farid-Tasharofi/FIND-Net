@@ -97,7 +97,7 @@ bash test.sh
 ### Performance Improvements
 Below is a comparison of **MAE, SSIM, and PSNR** improvements (%) across MAR models, relative to DICDNet.
 <div align="center">
-  <img src="Figures/Improvements.png" width="40%">
+  <img src="Figures/Improvements.png" width="50%">
 </div>
 
 **Figure:** Boxplot comparison of MAE, SSIM, and PSNR improvements (%) across MAR models, relative to DICDNet. Overall distributions are shown, with zoomed-in views highlighting FIND-Net and FIND-Net without Gaussian filtering (FIND-Net w/o GF). Mean, median, and 95% confidence intervals (*) are annotated. A zero-baseline corresponds to DICDNet, and negative values indicate worse performance relative to it.
@@ -132,7 +132,7 @@ The **red mask highlights segmented metal**, and the **blue region (artifact-fre
 **Figure:** Qualitative comparison of MAR methods on a real-world CT scan.
 Our dataset consists of **29 real-world CT images**, where no artifact-free reference is available. To evaluate **structural preservation**, we selected **7 images** in which it was possible to identify a **patch free of metal artifacts**. These selected patches serve as a reference to assess how much each model alters clean regions. 
 
-Each of the **7 selected images** was processed by all models, and **MAE, SSIM, and PSNR** were computed on the selected patches to quantify structural preservation. An ideal MAR method should leave these regions unchanged—achieving **low MAE, high SSIM, and high PSNR**. 
+Each of the **7 selected images** was processed by all models, and **MAE, SSIM, and PSNR** were computed on the selected patches to quantify structural preservation. An ideal MAR method should leave these regions unchanged, achieving **low MAE, high SSIM, and high PSNR**. 
 
 The **figure above** shows one of these 7 images and its results across different models, with the **corresponding MAE, SSIM, and PSNR values displayed on the figure itself**. 
 
