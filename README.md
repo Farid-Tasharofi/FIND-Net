@@ -54,7 +54,7 @@ Before running the test script, ensure that the correct model configuration is s
    - **`FINDNet_no_GF`** → FIND-Net without Gaussian filtering  
    - **`DICDNet`** → Baseline DICDNet model  
 
-2. **Modify `ProxNet.py` settings (located in the `Model` folder)**:
+2. **Modify [`ProxNet.py`](./Model/ProxNet.py) settings (located in the [`Model`](./Model) folder)**:
    - For **FINDNet** or **FINDNet_no_GF**:
      ```python
      FINDNet_Mnet = True
@@ -66,7 +66,7 @@ Before running the test script, ensure that the correct model configuration is s
      FINDNet_Xnet = False
      ```
 
-3. **Modify `ffc.py` settings (located in the `Model` folder)**:
+3. **Modify [`ffc.py`](./Model/ffc.py) settings (located in the [`Model`](./Model) folder)**:
    - For **FINDNet** (with Gaussian filtering enabled):
      ```python
      Gaussian_filter = True
