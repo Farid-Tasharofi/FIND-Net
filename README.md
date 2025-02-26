@@ -143,7 +143,7 @@ The **table below** reports the **average** metrics over all 7 selected cases.
 | OSCNet+          | 0.007      | 0.94       | 40.45      |
 | DICDNet          | 0.007      | 0.94       | 40.37      |
 | FIND-Net-NoGF    | 0.006      | 0.96       | 41.81      |
-| **FIND-Net**     | **0.005**  | **0.97**   | **43.23**  |
+| **FIND-Net (Ours)**     | **0.005**  | **0.97**   | **43.23**  |
 
 **Table:** Quantitative results on 7 real-world patches free of metal artifacts.
 
