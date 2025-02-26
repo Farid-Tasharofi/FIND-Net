@@ -90,7 +90,6 @@ bash test.sh
 
 ## Quantitative Evaluation
 ### Performance Comparison of MAR Approaches
-| Methods         ||  | Small Metal | Average |
 | Methods         | Large Metal | Medium Metal | Small Metal | Average |
 |---------------|---------------------|---------------------|---------------------|---------------------|
 | **Linear Interpolation**        | 35.5 / 0.866 / 35.9 | 29.6 / 0.899 / 38.1 | 23.4 / 0.929 / 39.9 | 26.6 / 0.913 / 38.9 |
