@@ -1,36 +1,31 @@
 # FIND-Net: Fourier-Integrated Network with Dictionary Kernels for Metal Artifact Reduction
 FIND-Net (Fourier-Integrated Network with Dictionary Kernels) is a deep learning model for Metal Artifact Reduction (MAR) in CT imaging. It integrates Fast Fourier Convolution (FFC) and trainable Gaussian filtering to suppress artifacts while preserving anatomical structures. 
 
+
+
+## Features
+- **Iterative Hybrid Frequency-Spatial MAR framework**: Integrates **Fast Fourier Convolution (FFC)** for improved feature extraction.  
+- **Trainable Gaussian Filtering**: Enhances frequency selectivity while preserving critical anatomical details.  
+- **Efficient MAR Performance**: Reduces metal artifacts while maintaining high structural fidelity.  
+- **Benchmark Comparisons**: Achieves state-of-the-art results against existing MAR methods.
+
+
+## Overview
+FIND-Net is a deep learning-based framework for **Metal Artifact Reduction (MAR)** in CT imaging. It extends the **DICDNet** architecture by incorporating **Fourier domain processing** and **trainable Gaussian filtering**, enhancing artifact suppression while preserving anatomical structures.
+![FIND-Net Architecture](Figures/FIND-Net.png)
+
 ## Abstract
 Metal artifacts, caused by high-density metallic implants in computed tomography (CT) imaging, severely degrade image quality, complicating diagnosis and treatment planning. While existing deep learning algorithms have achieved notable success in Metal Artifact Reduction (MAR), they often struggle to suppress artifacts while preserving structural details. To address this challenge, we propose FIND-Net (Fourier-Integrated Network with Dictionary Kernels), a novel MAR framework that integrates frequency and spatial domain processing to achieve superior artifact suppression and structural preservation. 
 FIND-Net incorporates Fast Fourier Convolution (FFC) layers and trainable Gaussian filtering, treating MAR as a hybrid task operating in both spatial and frequency domains. This approach enhances global contextual understanding and frequency selectivity, effectively reducing artifacts while maintaining anatomical structures. Experiments on synthetic datasets show that FIND-Net achieves statistically significant improvements over state-of-the-art MAR methods, with a 3.07\% MAE reduction, 0.18\% SSIM increase, and 0.90\% PSNR improvement, confirming robustness across varying artifact complexities. Furthermore, evaluations on real-world clinical CT scans confirm FIND-Net’s ability to minimize modifications to clean anatomical regions while effectively suppressing metal-induced distortions. These findings highlight FIND-Net’s potential for advancing MAR performance, offering superior structural preservation and improved clinical applicability.
 
+## Network Architecture
+FIND-Net improves MAR by integrating **frequency-based processing** into its iterative refinement framework. Instead of relying solely on spatial convolutions, it incorporates **Fast Fourier Convolution (FFC)** to capture both local and global frequency characteristics. This hybrid approach enhances artifact suppression while preserving fine anatomical details.
 
-## Overview
+The architecture consists of two key components:
+- **M-Net**: Estimates metal artifacts using frequency-enhanced features.
+- **X-Net**: Progressively refines the reconstructed image by filtering residual artifacts in both spatial and frequency domains.
 
-
-![FIND-Net Architecture](Figures/FIND-Net.png) <!-- Ensure the path is correct -->
-
-
-
-<!-- 
-# FIND-Net: Fourier-Integrated Network with Dictionary Kernels for Metal Artifact Reduction
-
-![FIND-Net Logo](https://your-logo-url.com) Optional: Replace with a relevant image -->
-
-## Overview
-FIND-Net is a deep learning-based framework for **Metal Artifact Reduction (MAR)** in CT imaging. It extends the **DICDNet** architecture by incorporating **Fourier domain processing** and **trainable Gaussian filtering**, enhancing artifact suppression while preserving anatomical structures.
-
-This repository provides:
-- **Implementation of FIND-Net** for MAR.
-- **Training and inference scripts** for testing the model.
-- **Evaluation metrics and dataset handling**.
-
-## Features
-✅ **Hybrid Frequency-Spatial Processing**: Integrates **Fast Fourier Convolution (FFC)** for improved feature extraction.  
-✅ **Trainable Gaussian Filtering**: Enhances frequency selectivity while preserving critical anatomical details.  
-✅ **Efficient MAR Performance**: Reduces metal artifacts while maintaining high structural fidelity.  
-✅ **Benchmark Comparisons**: Achieves state-of-the-art results against existing MAR methods.  
+To further improve **frequency adaptability**, FIND-Net employs **trainable Gaussian filtering** in the frequency domain, dynamically adjusting filtering parameters during training. This ensures that the model selectively enhances important frequency components while suppressing noise and irrelevant patterns. 
 
 
 
@@ -88,7 +83,7 @@ Once the configurations are correctly set, run the following command in the term
 bash test.sh
 ```
 
-## Quantitative Evaluation
+## Quantitative Evaluation on Synthetic Data
 ### Performance Comparison of MAR Approaches
 | Methods         | Large Metal | Medium Metal | Small Metal | Average |
 |---------------|---------------------|---------------------|---------------------|---------------------|
