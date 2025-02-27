@@ -137,13 +137,13 @@ The **red mask highlights segmented metal**, and the **blue region (artifact-fre
 </div>
 
 **Figure:** Qualitative comparison of MAR methods on a real-world CT scan.
-Our dataset consists of **29 real-world CT images**, where no artifact-free reference is available. To evaluate **structural preservation**, we selected **7 images** in which it was possible to identify a **patch free of metal artifacts**. These selected patches serve as a reference to assess how much each model alters clean regions. 
+Our dataset consists of **29 real-world CT images**, where no artifact-free reference is available. To evaluate **structural preservation**, we selected **seven images** in which it was possible to identify a **patch free of metal artifacts**. These selected patches serve as a reference to assess how much each model alters clean regions. 
 
-Each of the **7 selected images** was processed by all models, and **MAE, SSIM, and PSNR** were computed on the selected patches to quantify structural preservation. An ideal MAR method should leave these regions unchanged, achieving **low MAE, high SSIM, and high PSNR**. 
+Each of the **selected images** was processed by all models, and **MAE, SSIM, and PSNR** were computed on the selected patches to quantify structural preservation. An ideal MAR method should leave these regions unchanged, achieving **low MAE, high SSIM, and high PSNR**. 
 
-The **figure above** shows one of these 7 images and its results across different models, with the **corresponding MAE, SSIM, and PSNR values displayed on the figure itself**. 
+The **figure above** shows one of these selected images and its results across different models, with the **corresponding MAE, SSIM, and PSNR values displayed on the figure itself**. 
 
-The **table below** reports the **average** metrics over all 7 selected cases.
+The **table below** reports the **average** metrics over all selected cases.
 </div>
 
 <div align="center">
@@ -158,7 +158,7 @@ The **table below** reports the **average** metrics over all 7 selected cases.
 
 </div>
 
-**Table:** Quantitative results on 7 real-world patches free of metal artifacts.
+**Table:** Quantitative results on seven real-world patches free of metal artifacts.
 
 ### **Referenced Work**
 - **DICDNet: Deep Interpretable Convolutional Dictionary Network for Metal Artifact Reduction in CT Images**  
