@@ -11,7 +11,7 @@ FIND-Net (Fourier-Integrated Network with Dictionary Kernels) is a deep learning
 ## Overview
 FIND-Net is a deep learning-based framework for **Metal Artifact Reduction (MAR)** in CT imaging. It extends the **DICDNet** architecture by incorporating **Fourier domain processing** and **trainable Gaussian filtering**, enhancing artifact suppression while preserving anatomical structures.
 <div align="center">
-  <img src="Figures/FIND-Net.png" width="50%">
+  <img src="Figures/FIND-Net.png" width="80%">
 </div>
 
 
@@ -104,7 +104,7 @@ bash test.sh
 <div align="justify">
 Below is a comparison of **MAE, SSIM, and PSNR** improvements (%) across MAR models, relative to DICDNet.
 <div align="center">
-  <img src="Figures/Improvement.png" width="50%">
+  <img src="Figures/Improvement.png" width="80%">
 </div>
 
 **Figure:** Boxplot comparison of MAE, SSIM, and PSNR improvements (%) across MAR models, relative to DICDNet. Overall distributions are shown, with zoomed-in views highlighting FIND-Net and FIND-Net without Gaussian filtering (FIND-Net w/o GF). Mean, median, and 95% confidence intervals (*) are annotated. A zero-baseline corresponds to DICDNet, and negative values indicate worse performance relative to it.
@@ -114,7 +114,7 @@ Below is a comparison of **MAE, SSIM, and PSNR** improvements (%) across MAR mod
 Below is a qualitative comparison of MAR results on a **metal-corrupted synthetic CT image**. The highlighted ROIs demonstrate **FIND-Net’s superior artifact suppression**, particularly in fine streak removal and edge preservation, compared to other methods.  
 The **red mask highlights the metal mask**.
 <div align="center">
-  <img src="Figures/VisualComparison.png" width="60%">
+  <img src="Figures/VisualComparison.png" width="90%">
 </div>
 
 **Figure:** Qualitative comparison of MAR results on a metal-corrupted synthetic CT image.
