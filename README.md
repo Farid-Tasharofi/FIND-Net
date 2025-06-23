@@ -133,7 +133,7 @@ The **red mask highlights segmented metal**, and the **blue region (artifact-fre
 The following comparison shows **MAR methods on a real-world CT scan**, where no ground truth is available.  
 The **red mask highlights segmented metal**, and the **blue region (artifact-free in the input)** is evaluated for **structural preservation**.
 <div align="center">
-  <img src="Figures/RealWorldComparison.png" width="60%">
+  <img src="Figures/RealWorldComparison.png" width="90%">
 </div>
 
 **Figure:** Qualitative comparison of MAR methods on a real-world CT scan.
