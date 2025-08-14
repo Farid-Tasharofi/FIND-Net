@@ -1,4 +1,8 @@
 # FIND-Net: Fourier-Integrated Network with Dictionary Kernels for Metal Artifact Reduction
+
+### 🎉This work is accepted [MICCAI 2025](https://conferences.miccai.org/2025/en/default.asp)!
+
+
 <div align="justify">
 FIND-Net (Fourier-Integrated Network with Dictionary Kernels) is a deep learning model for Metal Artifact Reduction (MAR) in CT imaging. It integrates Fast Fourier Convolution (FFC) and trainable Gaussian filtering to suppress artifacts while preserving anatomical structures. 
 
