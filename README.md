@@ -187,4 +187,16 @@ This repository includes code adapted from:
   [GitHub: pkumivision/FFC](https://github.com/pkumivision/FFC)  
   Licensed under the **Apache License 2.0**.  
   Full license available at: [Apache License](http://www.apache.org/licenses/LICENSE-2.0)
+  
+### **Acknowledgments**
+This work used the AAPM CT-MAR Grand Challenge datasets [1, 2]. The AAPM CT-MAR Grand Challenge datasets were generated with the open-source CT simulation environment XCIST [3], using a hybrid data simulation framework that combines publicly available clinical images [4, 5] and virtual metal objects.
 
+[1] AAPM CT Metal Artifact Reduction (CT-MAR) Grand Challenge: https://www.aapm.org/GrandChallenge/CT-MAR/
+
+[2] AAPM CT Metal Artifact Reduction (CT-MAR) Grand Challenge Benchmark Tool: https://github.com/xcist/example/tree/main/AAPM_datachallenge/
+
+[3] Wu M, FitzGerald P, Zhang J, Segars WP, Yu J, Xu Y, De Man B. XCIST - an open access x-ray/CT simulation toolkit. Phys Med Biol. 2022 Sep 28;67(19)
+
+[4] Yan K, Wang X, Lu L, Summers RM, "DeepLesion: Automated Mining of Large-Scale Lesion Annotations and Universal Lesion Detection with Deep Learning", Journal of Medical Imaging 5(3), 036501 (2018), doi: 10.1117/1.JMI.5.3.036501
+
+[5] Goren N, Dowrick T, Avery J & Holder D. (2017). UCLH Stroke EIT Dataset - Radiology Data (CT). Zenodo. https://doi.org/10.5281/zenodo.838704
